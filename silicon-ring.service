@@ -1,0 +1,18 @@
+[Unit]
+Description=silicon-ring — Central voice call routing server
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/silicon-ring
+EnvironmentFile=/home/ubuntu/silicon-ring/.env
+ExecStart=/home/ubuntu/silicon-ring/.venv/bin/uvicorn main:app --host 127.0.0.1 --port 8010 --workers 1
+Restart=always
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=silicon-ring
+
+[Install]
+WantedBy=multi-user.target

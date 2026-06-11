@@ -1,0 +1,23 @@
+# Web framework
+fastapi>=0.115
+uvicorn[standard]>=0.32
+pydantic-settings>=2.5
+
+# LiveKit — room management (livekit.api) + real-time audio (livekit.rtc)
+livekit>=0.20
+livekit-api>=0.7
+
+# Gemini Live — bidirectional audio streaming
+google-genai>=0.8
+
+# Push notifications
+firebase-admin>=6.5         # FCM (Android)
+httpx[http2]>=0.27          # APNs HTTP/2 (iOS) + Glass API calls
+PyJWT>=2.9                  # JWT signing for APNs provider token
+
+# CLI
+click>=8.1
+
+# PCM resampling (48kHz → 16kHz for Gemini Live input)
+# audioop is stdlib in Python ≤3.12; audioop-lts provides it for 3.13+
+audioop-lts; python_version >= "3.13"
